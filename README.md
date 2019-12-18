@@ -9,6 +9,6 @@ Simulate this effect on mobile:
   2. Color changes according to water depth.
   3. Shadow simulation on water.
 
-![Shader Demo](https://github.com/RavenTKF/High-performance-water-shader/blob/master/img/Demo.gif
+![Shader Demo](https://github.com/RavenTKF/High-performance-water-shader/blob/master/img/Demo.gif)
 
 Color,shadow,light direction and intensity can be modified in inspector.
