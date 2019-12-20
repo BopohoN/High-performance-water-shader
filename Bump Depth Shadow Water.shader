@@ -4,6 +4,7 @@ Shader "Custome/Tex Simulate Water"
 	{
 		_WaterTex ("Normal Map (RGB), Foam (A)", 2D) = "white" {}
 		_AlphaTex("AlphaTex", 2D) = "black" {}
+		//_NoiseTex("Noise Map", 2D) = "black" {}
 		_shadowLight ("shadowLight",range(0,1)) = 0
 		_Tiling ("Wave Scale", Range(0.01, 1)) = 0.25
 		_WaveSpeed("Wave Speed", float) = 0.4
@@ -16,6 +17,8 @@ Shader "Custome/Tex Simulate Water"
 		_LightColorSelf ("LightColorSelf",Color) = (1,1,1,1)
 		_LightDir ("LightDir",vector) = (0,1,0,0)
 		_specularLight("specularLight",range(0.1,2)) =1	
+		//_Frequency ("Wave Frequency", Range(0, 5)) = 2
+		//_Amplitude ("Wave Amplitude", Range(-1, 1)) = 1
 	}
 	
 	SubShader 
@@ -70,7 +73,10 @@ Shader "Custome/Tex Simulate Water"
 			{
 			    v2f o;
 			    float4 worldPos = mul(unity_ObjectToWorld, v.vertex);
+			    //float waveValueA = sin(time + v.vertex.x * _Frequency) * _Amplitude;
+			    //float waveValueB = sin(time + v.vertex.z * _Frequency) * _Amplitude;
 			    
+			    //v.vertex.xyz = float3(v.vertex.x + waveValueB, v.vertex.y + waveValueA, v.vertex.z + waveValueB);
 			    o.worldView = -normalize(worldPos - _WorldSpaceCameraPos);
 			    o.position = UnityObjectToClipPos(v.vertex);
 			    
